@@ -7,4 +7,6 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="sign_out">Sign Out</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="or">OR</string>
+    <string name="logo">Logo</string>
 </resources>

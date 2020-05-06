@@ -1,15 +1,15 @@
 package com.example.firebaseauth.ui.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebaseauth.R
 import com.example.firebaseauth.data.repositories.UserRepository
-import com.example.firebaseauth.ui.main.MainActivity
 import com.example.firebaseauth.ui.UserPreference
+import com.example.firebaseauth.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_signup.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein

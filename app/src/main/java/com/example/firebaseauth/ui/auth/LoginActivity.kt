@@ -8,15 +8,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebaseauth.R
-import com.example.firebaseauth.data.firebase.FirebaseSource
 import com.example.firebaseauth.data.repositories.UserRepository
 import com.example.firebaseauth.ui.ForgotPasswordActivity
-import com.example.firebaseauth.ui.main.MainActivity
 import com.example.firebaseauth.ui.UserPreference
+import com.example.firebaseauth.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
-import org.kodein.di.generic.instance
 
 class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
 

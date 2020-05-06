@@ -1,9 +1,9 @@
 package com.example.firebaseauth.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.example.firebaseauth.R
 import com.example.firebaseauth.ui.auth.LoginActivity
 import com.example.firebaseauth.ui.main.MainActivity
