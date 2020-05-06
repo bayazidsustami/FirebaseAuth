@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory
 import android.media.RingtoneManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.ViewModelProvider
@@ -29,10 +30,14 @@ class MainActivity : AppCompatActivity(), KodeinAware {
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var viewModel: MainViewModel
 
+    private var isLogin = false
+
     companion object{
-        val NOTIFICATION_ID = 1
-        val CHANNEL_ID = "channel1"
-        val CHANNEL_NAME = "my channel"
+        private const val NOTIFICATION_ID = 1
+        private const val CHANNEL_ID = "channel1"
+        private const val CHANNEL_NAME = "my channel"
+
+        private const val ISLOGIN = "login"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,10 +64,20 @@ class MainActivity : AppCompatActivity(), KodeinAware {
             finish()
         }
 
-        user?.email?.let { showNotification(it) }
+        Log.d("STATE", savedInstanceState?.getBoolean(ISLOGIN).toString())
+
+        if (savedInstanceState?.getBoolean(ISLOGIN) != true ){
+            user?.email?.let { showNotification(it) }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(ISLOGIN, isLogin)
     }
 
     private fun showNotification(email: String){
+        isLogin = true
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
