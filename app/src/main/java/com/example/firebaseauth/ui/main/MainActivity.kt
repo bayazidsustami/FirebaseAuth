@@ -18,6 +18,7 @@ import com.example.firebaseauth.data.repositories.UserRepository
 import com.example.firebaseauth.ui.UserPreference
 import com.example.firebaseauth.ui.auth.LoginActivity
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -69,6 +70,8 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         if (savedInstanceState?.getBoolean(ISLOGIN) != true ){
             user?.email?.let { showNotification(it) }
         }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("information")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
