@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.firebaseauth">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".BaseApplication"
@@ -12,25 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.editor.EditorActivity"></activity>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_notifications_black_24dp"/>
-
+            android:resource="@drawable/ic_notifications_black_24dp" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent"/>
-
+            android:resource="@color/colorAccent" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:resource="@string/default_notification_channel_id"/>
+            android:resource="@string/default_notification_channel_id" />
 
         <service android:name=".service.FirebaseCloudMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <activity android:name=".ui.SplashActivity"
+
+        <activity
+            android:name=".ui.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +40,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.auth.ForgotPasswordActivity" />
-        <activity android:name=".ui.auth.SignupActivity"/>
+        <activity android:name=".ui.auth.SignupActivity" />
         <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.main.MainActivity" />
     </application>
 
 </manifest>

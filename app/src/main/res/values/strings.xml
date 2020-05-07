@@ -10,4 +10,8 @@
     <string name="or">OR</string>
     <string name="logo">Logo</string>
     <string name="get_link_password">Get Link Password</string>
+    <string name="title">Title</string>
+    <string name="detail">Detail ....</string>
+    <string name="submit">Submit</string>
+    <string name="add_note">Add Note</string>
 </resources>

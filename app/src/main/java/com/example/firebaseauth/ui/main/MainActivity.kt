@@ -10,6 +10,8 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +19,7 @@ import com.example.firebaseauth.R
 import com.example.firebaseauth.data.repositories.UserRepository
 import com.example.firebaseauth.ui.UserPreference
 import com.example.firebaseauth.ui.auth.LoginActivity
+import com.example.firebaseauth.ui.editor.EditorActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
@@ -72,6 +75,18 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         }
 
         FirebaseMessaging.getInstance().subscribeToTopic("information")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.addNote -> startActivity(Intent(this, EditorActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
