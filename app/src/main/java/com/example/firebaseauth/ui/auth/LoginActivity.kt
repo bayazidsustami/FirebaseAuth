@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebaseauth.R
 import com.example.firebaseauth.data.repositories.UserRepository
-import com.example.firebaseauth.ui.ForgotPasswordActivity
 import com.example.firebaseauth.ui.UserPreference
 import com.example.firebaseauth.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*

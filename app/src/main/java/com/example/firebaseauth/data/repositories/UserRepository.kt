@@ -7,6 +7,8 @@ class UserRepository(private val firebase: FirebaseSource) {
 
     fun register(email: String, password: String) = firebase.register(email, password)
 
+    fun forgotPassword(email: String) = firebase.resetPassword(email)
+
     fun currentUser() = firebase.currentUser()
 
     fun logout() = firebase.logout()

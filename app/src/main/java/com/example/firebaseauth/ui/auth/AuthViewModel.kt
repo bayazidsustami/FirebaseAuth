@@ -10,7 +10,7 @@ class AuthViewModel(private val repository: UserRepository): ViewModel() {
     var authListener: AuthListener? = null
     private val disposables = CompositeDisposable()
 
-    fun login(email: String, password: String){
+    fun login(email: String?, password: String?){
         if (email.isNullOrEmpty() || password.isNullOrEmpty()){
             authListener?.onFailure("Invalid email or password")
         }
@@ -18,7 +18,7 @@ class AuthViewModel(private val repository: UserRepository): ViewModel() {
         authListener?.onStarted()
 
         //calling login from repository to perform the actual authentication
-        val disposable = repository.login(email, password)
+        val disposable = repository.login(email!!, password!!)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -30,7 +30,7 @@ class AuthViewModel(private val repository: UserRepository): ViewModel() {
         disposables.add(disposable)
     }
 
-    fun signUp(email: String, password: String){
+    fun signUp(email: String?, password: String?){
         if (email.isNullOrEmpty() || password.isNullOrEmpty()){
             authListener?.onFailure("Please input all field")
             return
@@ -45,6 +45,25 @@ class AuthViewModel(private val repository: UserRepository): ViewModel() {
             }, {
                 authListener?.onFailure(it.message!!)
             })
+        disposables.add(disposable)
+    }
+
+    fun resetPass(email: String){
+        if (email.isEmpty()){
+            authListener?.onFailure("email field must not null")
+            return
+        }
+        authListener?.onStarted()
+
+        val disposable = repository.forgotPassword(email)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                authListener?.onSuccess()
+            }, {
+                authListener?.onFailure(it.message!!)
+            })
+
         disposables.add(disposable)
     }
 
