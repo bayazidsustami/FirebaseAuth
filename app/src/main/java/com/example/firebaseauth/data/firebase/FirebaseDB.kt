@@ -1,8 +1,9 @@
 package com.example.firebaseauth.data.firebase
 
+import android.util.Log
 import com.example.firebaseauth.data.NoteEntity
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.example.firebaseauth.ui.main.MainListAdapter
+import com.google.firebase.database.*
 import io.reactivex.Completable
 
 class FirebaseDB {
@@ -10,6 +11,9 @@ class FirebaseDB {
         FirebaseDatabase.getInstance().getReference("NOTE")
     }
 
+    private lateinit var myAdapter: MainListAdapter
+
+    private val list = mutableListOf<NoteEntity>()
     fun insert(notes: NoteEntity) = Completable.create{emitter ->
         val id = database.push().key.toString()
         database.child(id).setValue(notes).addOnCompleteListener {

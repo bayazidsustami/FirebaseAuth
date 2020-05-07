@@ -5,4 +5,6 @@ data class NoteEntity(
     val title: String? = null,
     val detail: String? = null,
     val time: String
-)
+) {
+    constructor(): this("", "", "", "")
+}

@@ -5,5 +5,8 @@
         android:id="@+id/addNote"
         android:title="@string/add_note"
         />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"/>
 
 </menu>

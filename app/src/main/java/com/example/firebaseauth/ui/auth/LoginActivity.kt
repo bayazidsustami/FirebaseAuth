@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
             val password: String = pass_edt_text.text.toString()
 
             Log.d("TAG", "CLICKED")
-            viewModel.login(email, password)
+            viewModel.login(email, password, this)
         }
 
         signup_btn.setOnClickListener {

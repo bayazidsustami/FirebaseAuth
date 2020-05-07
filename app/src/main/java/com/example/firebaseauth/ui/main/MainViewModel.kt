@@ -12,4 +12,5 @@ class MainViewModel(private val repository: UserRepository): ViewModel() {
     fun logout(){
         repository.logout()
     }
+
 }

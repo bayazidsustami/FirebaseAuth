@@ -38,6 +38,10 @@ class EditorViewModel(private val repository: NoteRepository): ViewModel() {
         disposables.add(disposable)
     }
 
+    fun getData(){
+
+    }
+
     private fun currentDate(): String {
         val sdf = SimpleDateFormat("dd/MMM/yyyy hh:mm:ss", Locale.getDefault())
         return sdf.format(Date())
